@@ -1,0 +1,70 @@
+﻿@model LekplatsWebApp.LekplatsService.LekplatsFullständigData
+
+@{
+    ViewBag.Title = "GeBetyg";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+    <div>
+        <div Id="GeIndiviBetyg" class="form-style-8 backgroundBild">
+            <h2 class="">Vad tycker du om lekplatsen @Html.DisplayFor(m => m.namn)?</h2>
+            @using (Html.BeginForm())
+            {<div class="">
+                    <div class="cont">
+                        <h1>Skojfaktor</h1>
+                        <div class="stars">
+
+                            <input class="star star-5" id="skoj-5" type="radio" name="skoj" value="5" />
+                            <label class="star star-5" for="skoj-5"></label>
+                            <input class="star star-4" id="skoj-4" type="radio" name="skoj" value="4" />
+                            <label class="star star-4" for="skoj-4"></label>
+                            <input class="star star-3" id="skoj-3" type="radio" name="skoj" value="3" />
+                            <label class="star star-3" for="skoj-3"></label>
+                            <input class="star star-2" id="skoj-2" type="radio" name="skoj" value="2" />
+                            <label class="star star-2" for="skoj-2"></label>
+                            <input class="star star-1" id="skoj-1" type="radio" name="skoj" value="1" />
+                            <label class="star star-1" for="skoj-1"></label>
+
+                        </div>
+
+                        <h1>Renlighet</h1>
+                        <div class="stars">
+
+                            <input class="star star-5" id="ren-5" type="radio" name="ren" value="5" />
+                            <label class="star star-5" for="ren-5"></label>
+                            <input class="star star-4" id="ren-4" type="radio" name="ren" value="4" />
+                            <label class="star star-4" for="ren-4"></label>
+                            <input class="star star-3" id="ren-3" type="radio" name="ren" value="3" />
+                            <label class="star star-3" for="ren-3"></label>
+                            <input class="star star-2" id="ren-2" type="radio" name="ren" value="2" />
+                            <label class="star star-2" for="ren-2"></label>
+                            <input class="star star-1" id="ren-1" type="radio" name="ren" value="1" />
+                            <label class="star star-1" for="ren-1"></label>
+
+                        </div>
+
+                        <h1>Trygghet</h1>
+                        <div class="stars">
+
+                            <input class="star star-5" id="trygg-5" type="radio" name="trygg" value="5" />
+                            <label class="star star-5" for="trygg-5"></label>
+                            <input class="star star-4" id="trygg-4" type="radio" name="trygg" value="4" />
+                            <label class="star star-4" for="trygg-4"></label>
+                            <input class="star star-3" id="trygg-3" type="radio" name="trygg" value="3" />
+                            <label class="star star-3" for="trygg-3"></label>
+                            <input class="star star-2" id="trygg-2" type="radio" name="trygg" value="2" />
+                            <label class="star star-2" for="trygg-2"></label>
+                            <input class="star star-1" id="trygg-1" type="radio" name="trygg" value="1" />
+                            <label class="star star-1" for="trygg-1"></label>
+
+                        </div>
+                        @Html.HiddenFor(m => m.lekplatsId)
+                    </div>
+                        <input type="submit" class="button" value="Skicka" />
+
+                </div>}
+        </div>
+        <br />
+        <div><a class="button" href="@Url.Action("Index", "Lekplatser")">Gå tillbaka till alla Lekplatser</a></div>
+
+    </div>

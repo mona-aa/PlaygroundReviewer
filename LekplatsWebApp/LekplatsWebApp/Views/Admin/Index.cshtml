@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model IEnumerable<LekplatsWebApp.LekplatsService.LekplatsFullständigData[]>
+
+
+
+    <div id="bodyAsTable">
+
+        <div class="sticky-header"></div>
+        <a class="sticky-skapa" href="@Url.Action("SkapaLekplats", "Admin")">Skapa Lekplats</a>
+        <a class="sticky-LoggaUt" href="@Url.Action("LogOut", "Admin")">Logga ut</a>
+        <div class="sideNavbar">
+            <a id="to-top" href="#">Välj område</a>
+            @foreach (var lekplatserFrånOmrådeArray in Model)
+            {
+                <a href="#@lekplatserFrånOmrådeArray[0].område">@lekplatserFrånOmrådeArray[0].område</a>
+            }
+
+
+        </div>
+
+        <div id="allaLekplatser">
+            @foreach (var lekplatserFrånOmrådeArray in Model)
+            {
+                <div id="@lekplatserFrånOmrådeArray[0].område">
+                    <div class="omrade-titel"><h1>@lekplatserFrånOmrådeArray[0].område</h1></div>
+                    @for (int i = 0; i < lekplatserFrånOmrådeArray.Length; i++)
+                    {
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="https://www.trollhattan.se/globalassets/bilder/bygga-bo-och-miljo/stadsbyggnad/lekplatser/skrotnisse/skrotnisses-lekplats_toppbild.jpg" alt="Macken" style="width:300px; height:150px;">
+                                    <div class="bildtext"><h2>@lekplatserFrånOmrådeArray[i].namn</h2></div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h2>@lekplatserFrånOmrådeArray[i].namn</h2>
+                                    <br /><br />
+                                    <form action="@Url.Action("UppdateraLekplats", "Admin")" method="get">
+                                        <input type="hidden" name="lekplatsId" value="@lekplatserFrånOmrådeArray[i].lekplatsId" />
+                                        <input type="submit" class="buttonAdd" value="Uppdatera" />
+                                    </form>
+                                    <form action="@Url.Action("TaBortLekplats", "Admin")" method="post">
+                                        <input type="hidden" name="lekplatsId" value="@lekplatserFrånOmrådeArray[i].lekplatsId" />
+                                        <input type="submit" class="buttonRemove" value="Ta bort lekplats">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+

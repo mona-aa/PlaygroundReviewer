@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/LekplatsService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/LekplatsService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:56906/LekplatsService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfLekplatsFullständigData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LekplatsFullständigData" nillable="true" type="tns:LekplatsFullständigData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLekplatsFullständigData" nillable="true" type="tns:ArrayOfLekplatsFullständigData" />
+  <xs:complexType name="LekplatsFullständigData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:LekplatsData">
+        <xs:sequence>
+          <xs:element name="lekplatsId" type="xs:int" />
+          <xs:element minOccurs="0" name="medelbetyg" nillable="true" type="tns:MedelBetygData" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LekplatsFullständigData" nillable="true" type="tns:LekplatsFullständigData" />
+  <xs:complexType name="LekplatsData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="adress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="beskrivning" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="lekutrustning" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="målgrupp" nillable="true" type="q2:ArrayOfint" />
+      <xs:element name="namn" nillable="true" type="xs:string" />
+      <xs:element name="område" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="tillgänglighet" nillable="true" type="q3:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LekplatsData" nillable="true" type="tns:LekplatsData" />
+  <xs:complexType name="MedelBetygData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="antalRöster" type="xs:int" />
+      <xs:element minOccurs="0" name="renlighetMedelbetyg" type="xs:double" />
+      <xs:element minOccurs="0" name="skojfaktorMedelbetyg" type="xs:double" />
+      <xs:element minOccurs="0" name="totalMedelbetyg" type="xs:double" />
+      <xs:element minOccurs="0" name="trygghetMedelbetyg" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MedelBetygData" nillable="true" type="tns:MedelBetygData" />
+  <xs:complexType name="IndividuelltBetygData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="datum" type="xs:dateTime" />
+      <xs:element name="lekplatsId" type="xs:int" />
+      <xs:element name="renlighetBetyg" type="xs:int" />
+      <xs:element name="skojfaktorBetyg" type="xs:int" />
+      <xs:element name="trygghetBetyg" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IndividuelltBetygData" nillable="true" type="tns:IndividuelltBetygData" />
+</xs:schema>

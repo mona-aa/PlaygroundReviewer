@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7920aef4-0568-4da0-890e-98b896f769de" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:56906/LekplatsService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LekplatsService.wsdl" MetadataType="Wsdl" ID="a18e08b0-34a2-4d0d-8d0f-9dbfe02e07bc" SourceId="1" SourceUrl="http://localhost:56906/LekplatsService.svc?wsdl" />
+    <MetadataFile FileName="LekplatsService.xsd" MetadataType="Schema" ID="6c0ca3b6-9222-4cb3-8ea3-295840f83d3b" SourceId="1" SourceUrl="http://localhost:56906/LekplatsService.svc?xsd=xsd3" />
+    <MetadataFile FileName="LekplatsService1.xsd" MetadataType="Schema" ID="02502217-f105-4b73-8fe8-7ca88c1d4fbb" SourceId="1" SourceUrl="http://localhost:56906/LekplatsService.svc?xsd=xsd0" />
+    <MetadataFile FileName="LekplatsService.disco" MetadataType="Disco" ID="3e1d538e-e41f-47ec-aac1-21baa5ed0de2" SourceId="1" SourceUrl="http://localhost:56906/LekplatsService.svc?disco" />
+    <MetadataFile FileName="LekplatsService2.xsd" MetadataType="Schema" ID="00f80a37-9100-40ff-9ed6-9e3835b85055" SourceId="1" SourceUrl="http://localhost:56906/LekplatsService.svc?xsd=xsd1" />
+    <MetadataFile FileName="LekplatsService3.xsd" MetadataType="Schema" ID="3f4db32f-3e51-4b07-bd39-219e4bc90d74" SourceId="1" SourceUrl="http://localhost:56906/LekplatsService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

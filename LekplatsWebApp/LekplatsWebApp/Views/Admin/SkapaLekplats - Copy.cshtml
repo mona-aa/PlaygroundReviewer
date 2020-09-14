@@ -1,0 +1,71 @@
+﻿@model LekplatsWebApp.Models.LekplatsMedOmråden
+
+
+@{
+    ViewBag.Title = "SkapaLekplats";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/Content/JavaScript.js"></script>
+<!-- jsDelivr :: Sortable :: Latest (https://www.jsdelivr.com/package/npm/sortablejs) -->
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+
+
+<h2>SkapaLekplats</h2>
+
+<div class="container">
+
+    @using (Html.BeginForm())
+    {
+        <div class="inputBlock">
+            <label for="namn">Namn: </label>
+
+            @Html.EditorFor(m => m.LekplatsData.namn, new { id = "namn" })
+        </div>
+
+        <div class="inputBlock">
+            <label for="adress">Adress:</label>
+
+            @Html.TextAreaFor(m => m.LekplatsData.adress, new { id = "adress" })
+        </div>
+        <div class="inputBlock">
+            <label for="område">Område: </label>
+            @Html.DropDownListFor(m => m.LekplatsData.område,
+           new SelectList(Model.OmrådesLista), "Välj")
+
+        </div>
+        <div class="inputBlock">
+            <label for="beskrivning">Beskrivning: </label>
+            @Html.TextAreaFor(m => m.LekplatsData.beskrivning, new { id = "beskrivning" })
+
+        </div>
+        //Här är jag ******************************************************************************
+        <div class="inputBlock">
+            Lekutrustning
+            <input type="button" value="Lägg till rad" onclick="LäggTillRad('lekutrustningContainer', 'lekutrustning')" />
+            <div id="lekutrustningContainer">
+                <script>LäggTillRad('lekutrustningContainer', 'lekutrustning')</script>
+            </div>
+        </div>
+
+        <div class="inputBlock">
+            Tillgänglighet
+            <input type="button" value="Lägg till rad" onclick="LäggTillRad('tillgänglighetContainer', 'tillgänglighet')" />
+            <div id="tillgänglighetContainer">
+                <script>LäggTillRad('tillgänglighetContainer', 'tillgänglighet')</script>
+            </div>
+        </div>
+        <div class="inputBlock">
+            <label>
+                Målgrupp:<br />
+                Minsta ålder
+                @Html.EditorFor(m => m.LekplatsData.målgrupp[0], new { id = "minAge" })
+                <p></p>
+                Max-ålder
+                @Html.EditorFor(m => m.LekplatsData.målgrupp[1], new { id = "maxAge" })
+            </label>
+        </div>
+        <div class="inputBlock">
+            <input type="submit" value="Skapa ny lekplats">
+        </div>
+    }
+</div>

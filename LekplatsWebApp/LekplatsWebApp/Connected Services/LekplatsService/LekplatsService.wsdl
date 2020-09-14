@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LekplatsService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:56906/LekplatsService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:56906/LekplatsService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:56906/LekplatsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LekplatsService" />
+      <xsd:import schemaLocation="http://localhost:56906/LekplatsService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILekplatsService_GetAllaLekplatser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllaLekplatser" />
+  </wsdl:message>
+  <wsdl:message name="ILekplatsService_GetAllaLekplatser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllaLekplatserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILekplatsService_GetLekplatsData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLekplatsData" />
+  </wsdl:message>
+  <wsdl:message name="ILekplatsService_GetLekplatsData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLekplatsDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILekplatsService_GetLekplatserFrånOmråde_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLekplatserFrånOmråde" />
+  </wsdl:message>
+  <wsdl:message name="ILekplatsService_GetLekplatserFrånOmråde_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLekplatserFrånOmrådeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILekplatsService_SkapaLekplats_InputMessage">
+    <wsdl:part name="parameters" element="tns:SkapaLekplats" />
+  </wsdl:message>
+  <wsdl:message name="ILekplatsService_SkapaLekplats_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SkapaLekplatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILekplatsService_SättBetyg_InputMessage">
+    <wsdl:part name="parameters" element="tns:SättBetyg" />
+  </wsdl:message>
+  <wsdl:message name="ILekplatsService_SättBetyg_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SättBetygResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILekplatsService_GetAllaOmråden_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllaOmråden" />
+  </wsdl:message>
+  <wsdl:message name="ILekplatsService_GetAllaOmråden_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllaOmrådenResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILekplatsService_TaBortLekplats_InputMessage">
+    <wsdl:part name="parameters" element="tns:TaBortLekplats" />
+  </wsdl:message>
+  <wsdl:message name="ILekplatsService_TaBortLekplats_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TaBortLekplatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILekplatsService_UppdateraLekplats_InputMessage">
+    <wsdl:part name="parameters" element="tns:UppdateraLekplats" />
+  </wsdl:message>
+  <wsdl:message name="ILekplatsService_UppdateraLekplats_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UppdateraLekplatsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILekplatsService">
+    <wsdl:operation name="GetAllaLekplatser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILekplatsService/GetAllaLekplatser" message="tns:ILekplatsService_GetAllaLekplatser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILekplatsService/GetAllaLekplatserResponse" message="tns:ILekplatsService_GetAllaLekplatser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLekplatsData">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILekplatsService/GetLekplatsData" message="tns:ILekplatsService_GetLekplatsData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILekplatsService/GetLekplatsDataResponse" message="tns:ILekplatsService_GetLekplatsData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLekplatserFrånOmråde">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILekplatsService/GetLekplatserFrånOmråde" message="tns:ILekplatsService_GetLekplatserFrånOmråde_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILekplatsService/GetLekplatserFrånOmrådeResponse" message="tns:ILekplatsService_GetLekplatserFrånOmråde_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SkapaLekplats">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILekplatsService/SkapaLekplats" message="tns:ILekplatsService_SkapaLekplats_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILekplatsService/SkapaLekplatsResponse" message="tns:ILekplatsService_SkapaLekplats_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SättBetyg">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILekplatsService/SättBetyg" message="tns:ILekplatsService_SättBetyg_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILekplatsService/SättBetygResponse" message="tns:ILekplatsService_SättBetyg_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllaOmråden">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILekplatsService/GetAllaOmråden" message="tns:ILekplatsService_GetAllaOmråden_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILekplatsService/GetAllaOmrådenResponse" message="tns:ILekplatsService_GetAllaOmråden_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TaBortLekplats">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILekplatsService/TaBortLekplats" message="tns:ILekplatsService_TaBortLekplats_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILekplatsService/TaBortLekplatsResponse" message="tns:ILekplatsService_TaBortLekplats_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UppdateraLekplats">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILekplatsService/UppdateraLekplats" message="tns:ILekplatsService_UppdateraLekplats_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILekplatsService/UppdateraLekplatsResponse" message="tns:ILekplatsService_UppdateraLekplats_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ILekplatsService" type="tns:ILekplatsService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllaLekplatser">
+      <soap:operation soapAction="http://tempuri.org/ILekplatsService/GetAllaLekplatser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLekplatsData">
+      <soap:operation soapAction="http://tempuri.org/ILekplatsService/GetLekplatsData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLekplatserFrånOmråde">
+      <soap:operation soapAction="http://tempuri.org/ILekplatsService/GetLekplatserFrånOmråde" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SkapaLekplats">
+      <soap:operation soapAction="http://tempuri.org/ILekplatsService/SkapaLekplats" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SättBetyg">
+      <soap:operation soapAction="http://tempuri.org/ILekplatsService/SättBetyg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllaOmråden">
+      <soap:operation soapAction="http://tempuri.org/ILekplatsService/GetAllaOmråden" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TaBortLekplats">
+      <soap:operation soapAction="http://tempuri.org/ILekplatsService/TaBortLekplats" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UppdateraLekplats">
+      <soap:operation soapAction="http://tempuri.org/ILekplatsService/UppdateraLekplats" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LekplatsService">
+    <wsdl:port name="BasicHttpBinding_ILekplatsService" binding="tns:BasicHttpBinding_ILekplatsService">
+      <soap:address location="http://localhost:56906/LekplatsService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

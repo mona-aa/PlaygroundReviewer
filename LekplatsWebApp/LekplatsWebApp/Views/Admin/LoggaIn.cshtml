@@ -1,0 +1,22 @@
+﻿@model LekplatsWebApp.Models.Anvandare
+
+@{
+    ViewBag.Title = "LoggaIn";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div>
+
+
+    <form method="post" class="form">
+        <h1>Logga in Admin</h1>
+
+        <span>Skriv ditt användarnamn</span>
+        <input class="loginput" required name="anvandarnamn" placeholder="Användarnamn/E-mail">
+        <input class="loginput" required type="password" name="losenord" placeholder="Lösenord">
+        <a class="forgot-pw" href="#">Glömt Lösenord?</a>
+        <input type="submit" class="LogIn_button" name="login-submit" value="Logga in">
+    </form>
+
+
+</div>

@@ -1,0 +1,118 @@
+﻿@model LekplatsWebApp.Models.LekplatsMedOmråden
+
+
+@{
+    ViewBag.Title = "SkapaLekplats";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/Content/JavaScript.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+<h2>SkapaLekplats</h2>
+
+<div class="container-input">
+
+    @using (Html.BeginForm())
+    { 
+        <div class="row">
+
+            <div class="inputBlock column alignRight">
+                <label for="namn">Namn: </label>
+            </div>
+            <div class="inputBlock column alignLeft">
+
+                @Html.EditorFor(m => m.LekplatsData.namn, new { id = "namn" })
+            </div>
+        </div>
+    <div class="row">
+
+        <div class="inputBlock column alignRight"><label for="adress">Adress:</label></div>
+        <div class="inputBlock column alignLeft">
+
+            @Html.TextAreaFor(m => m.LekplatsData.adress, new { id = "adress" })
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="inputBlock column alignRight"><label for="område">Område: </label></div>
+        <div class="inputBlock column alignLeft">
+            @Html.DropDownListFor(m => m.LekplatsData.område,
+           new SelectList(Model.OmrådesLista), "Välj")
+
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="inputBlock column alignRight"><label for="beskrivning">Beskrivning: </label></div>
+        <div class="inputBlock column alignLeft">
+            @Html.TextAreaFor(m => m.LekplatsData.beskrivning, new { id = "beskrivning" })
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="inputBlock column alignRight">
+            <label for="tillgänglighet">Lekplatstrustning: </label>
+        </div>
+
+        <div class="inputBlock column alignLeft">
+            <input type="button" class="button" value="Lägg till rad" onclick="LäggTillInputrad('lekutrustningContainer', 'lekutrustning')" />
+
+            <div id="lekutrustningContainer" class="list-group">
+                <script>
+                    //Alla inmatningsfält läggs i en lista skapad med SortableJS.
+                    //Listan fungerar bara med rätt klassnamn, byt inte namn på klassen
+                    //Handle används för att kunna dra listelement med en ikon.
+                    //Ikonen skapas i LäggTillRad (javascript) och måste ha samma klass som handle
+                    var lista = document.getElementById('lekutrustningContainer');
+                    var sortable = Sortable.create(lista, { handle: '.fa-arrows-v', animation: 150 });
+                    for (var i = 0; i < 3; i++) {
+                        LäggTillInputrad('lekutrustningContainer', 'lekutrustning');
+                    }
+                </script>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="inputBlock column alignRight">
+            <label for="tillgänglighet">Tillgänglighet:</label>
+        </div>
+        <div class="inputBlock column alignLeft">
+            <input type="button" class="button" value="Lägg till rad" onclick="LäggTillInputrad('tillgänglighetContainer', 'tillgänglighet')" />
+            <div id="tillgänglighetContainer" class="list-group">
+                <script>
+                    //Alla inmatningsfält läggs i en lista skapad med SortableJS.
+                    //Listan fungerar bara med rätt klassnamn, byt inte namn på klassen
+                    //Handle används för att kunna dra listelement med en ikon.
+                    //Ikonen skapas i LäggTillRad (javascript) och måste ha samma klass som handle
+                    var lista = document.getElementById('tillgänglighetContainer');
+                    var sortable = Sortable.create(lista, { handle: '.fa-arrows-v', animation: 150 });
+                    for (var i = 0; i < 3; i++) {
+                        LäggTillInputrad('tillgänglighetContainer', 'tillgänglighet');
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="inputBlock column alignRight"><label for="målgrupp">Målgrupp:</label></div>
+        <div class="inputBlock column alignLeft">
+            Minsta ålder<br />
+            @Html.EditorFor(m => m.LekplatsData.målgrupp[0], new { id = "minAge" })
+            <p></p>
+            Max-ålder<br />
+            @Html.EditorFor(m => m.LekplatsData.målgrupp[1], new { id = "maxAge" })
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="inputBlock column alignRight"><a class="button" href="@Url.Action("Index", "Admin")">Gå till lista</a></div>
+        <div class="inputBlock column alignLeft">
+            <input type="submit" class="button" value="Skapa ny lekplats">
+        </div>
+    </div>
+    }
+</div>

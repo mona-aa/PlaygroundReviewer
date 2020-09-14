@@ -1,0 +1,87 @@
+﻿@model LekplatsWebApp.LekplatsService.LekplatsFullständigData
+
+@{
+    ViewBag.Title = "Lekplats";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+<h2 class="lekplats-titel">@Html.DisplayFor(m => m.namn)</h2>
+<p><span class="boldText">Område:</span> @Html.DisplayFor(m => m.område)</p>
+
+<div class="lekplatsinfo">
+    <div class="bildspel-content" style="max-width:500px; display:inline-block;">
+        <img class="bildspel" src="https://www.trollhattan.se/globalassets/bilder/bygga-bo-och-miljo/stadsbyggnad/lekplatser/lextorpsparken.w.jpg" style="width:100%">
+        <img class="bildspel" src="https://www.trollhattan.se/globalassets/bilder/bygga-bo-och-miljo/stadsbyggnad/lekplatser/lextorpsparken.w2.jpg" style="width:100%">
+        <img class="bildspel" src="https://www.trollhattan.se/globalassets/bilder/bygga-bo-och-miljo/stadsbyggnad/lekplatser/lextorpsparken.w1.jpg" style="width:100%">
+    </div>
+
+    <br /><br />
+
+    <div class="infolistor">
+        <h3>Beskrivning</h3>
+        <p style="text-align:left;">
+            @Html.DisplayFor(m => m.beskrivning)
+        </p>
+    </div>
+
+    <br />
+
+    <div class="infolistor">
+        <div class="infoListaRad">
+            <h3>Lekutrustning</h3>
+            <ul class="ul-lista">
+                @foreach (var utrustning in Model.lekutrustning)
+                {
+                    <li>@utrustning</li>
+                }
+            </ul>
+        </div>
+        <div class="infoListaRad">
+            <h3>Tillgänglighet</h3>
+            <ul class="ul-lista">
+                @foreach (var tillgänglighet in Model.tillgänglighet)
+                {
+                    <li>@tillgänglighet</li>
+                }
+            </ul>
+        </div>
+        <div class="infoListaRad">
+            <h3>Lämplig ålder för lekplatsen</h3>
+            <p class="center"><span class="highlight">@Html.DisplayFor(m => Model.målgrupp[0]) till @Html.DisplayFor(m => Model.målgrupp[1]) år</span></p>
+        </div>
+    </div>
+    <br />
+    <div class="infolistor">
+        <p class="highlight">Totalt medelbetyg: <span class="boldText"> @Html.DisplayFor(m => m.medelbetyg.totalMedelbetyg) </span> av 5</p>
+        <p class="highlight">Skojfaktor:<span class="boldText"> @Html.DisplayFor(m => m.medelbetyg.skojfaktorMedelbetyg) </span> av 5</p>
+        <p class="highlight">Renlighet:<span class="boldText"> @Html.DisplayFor(m => m.medelbetyg.renlighetMedelbetyg) </span> av 5</p>
+        <p class="highlight">Trygghet:<span class="boldText"> @Html.DisplayFor(m => m.medelbetyg.trygghetMedelbetyg) </span> av 5</p>
+        <p>Antal röster totalt:<span class="highlight"> @Html.DisplayFor(m => m.medelbetyg.antalRöster) </span></p>
+
+
+        <a href="GeBetyg/@Model.lekplatsId" class="button">Ge Betyg!</a>
+    </div>
+    <br />
+    <div class="infolistor">
+        <p>Adress: <span class="boldText">@Html.DisplayFor(m => m.adress)</span></p>
+    </div>
+</div>
+<br />
+<div><a class="button" href="@Url.Action("Index", "Lekplatser")">Gå tillbaka till alla Lekplatser</a></div>
+
+<script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("bildspel");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) { myIndex = 1 }
+        x[myIndex - 1].style.display = "block";
+        setTimeout(carousel, 3000);
+    }
+</script>
