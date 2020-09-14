@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9c0ef86428814754b3f2ce65fde729d1" Name="Diagram1">
+        <EntityTypeShape EntityType="DatabasLekplatserModel.IndividuellaBetyg" Width="1.5" PointX="3.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabasLekplatserModel.Lekplatser" Width="1.5" PointX="6.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabasLekplatserModel.Lekutrustning" Width="1.5" PointX="9.375" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabasLekplatserModel.Områden" Width="1.5" PointX="3.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabasLekplatserModel.Tillgänglighet" Width="1.5" PointX="9.5" PointY="3.875" IsExpanded="true" />
+        <AssociationConnector Association="DatabasLekplatserModel.FK_IndividuellaBetyg_TillLekplatser" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabasLekplatserModel.FK_Lekplatser_TillOmråden" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabasLekplatserModel.FK_Lekutrustning_Lekplatser" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabasLekplatserModel.FK_Tillgänglighet_TillLekplatser" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

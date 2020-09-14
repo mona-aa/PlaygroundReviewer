@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DatabasLekplatserModelStoreContainer" CdmEntityContainer="DatabasLekplatserEntities">
+    <EntitySetMapping Name="IndividuellaBetyg">
+      <EntityTypeMapping TypeName="DatabasLekplatserModel.IndividuellaBetyg">
+        <MappingFragment StoreEntitySet="IndividuellaBetyg">
+          <ScalarProperty Name="IndividuellaBetygId" ColumnName="IndividuellaBetygId" />
+          <ScalarProperty Name="Datum" ColumnName="Datum" />
+          <ScalarProperty Name="Skojfaktor" ColumnName="Skojfaktor" />
+          <ScalarProperty Name="Renlighet" ColumnName="Renlighet" />
+          <ScalarProperty Name="Trygghet" ColumnName="Trygghet" />
+          <ScalarProperty Name="FK_Lekplatser_LekplatsId" ColumnName="FK_Lekplatser_LekplatsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lekplatser">
+      <EntityTypeMapping TypeName="DatabasLekplatserModel.Lekplatser">
+        <MappingFragment StoreEntitySet="Lekplatser">
+          <ScalarProperty Name="LekplatsId" ColumnName="LekplatsId" />
+          <ScalarProperty Name="Namn" ColumnName="Namn" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Beskrivning" ColumnName="Beskrivning" />
+          <ScalarProperty Name="MinÅlderMålgrupp" ColumnName="MinÅlderMålgrupp" />
+          <ScalarProperty Name="MaxÅlderMålgrupp" ColumnName="MaxÅlderMålgrupp" />
+          <ScalarProperty Name="FK_Områden_OmrådeId" ColumnName="FK_Områden_OmrådeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lekutrustning">
+      <EntityTypeMapping TypeName="DatabasLekplatserModel.Lekutrustning">
+        <MappingFragment StoreEntitySet="Lekutrustning">
+          <ScalarProperty Name="LekutrustningId" ColumnName="LekutrustningId" />
+          <ScalarProperty Name="Ordning" ColumnName="Ordning" />
+          <ScalarProperty Name="Beskrivning" ColumnName="Beskrivning" />
+          <ScalarProperty Name="FK_Lekplatser_LekplatsId" ColumnName="FK_Lekplatser_LekplatsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Områden">
+      <EntityTypeMapping TypeName="DatabasLekplatserModel.Områden">
+        <MappingFragment StoreEntitySet="Områden">
+          <ScalarProperty Name="OmrådeId" ColumnName="OmrådeId" />
+          <ScalarProperty Name="Namn" ColumnName="Namn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tillgänglighet">
+      <EntityTypeMapping TypeName="DatabasLekplatserModel.Tillgänglighet">
+        <MappingFragment StoreEntitySet="Tillgänglighet">
+          <ScalarProperty Name="TillgänglighetId" ColumnName="TillgänglighetId" />
+          <ScalarProperty Name="Ordning" ColumnName="Ordning" />
+          <ScalarProperty Name="Beskrivning" ColumnName="Beskrivning" />
+          <ScalarProperty Name="FK_Lekplatser_LekplatsId" ColumnName="FK_Lekplatser_LekplatsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

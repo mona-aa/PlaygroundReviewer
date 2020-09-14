@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabasLekplatserModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="IndividuellaBetyg">
+    <Key>
+      <PropertyRef Name="IndividuellaBetygId" />
+    </Key>
+    <Property Name="IndividuellaBetygId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Datum" Type="DateTime" Precision="3" />
+    <Property Name="Skojfaktor" Type="Byte" Nullable="false" />
+    <Property Name="Renlighet" Type="Byte" Nullable="false" />
+    <Property Name="Trygghet" Type="Byte" Nullable="false" />
+    <Property Name="FK_Lekplatser_LekplatsId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Lekplatser" Relationship="Self.FK_IndividuellaBetyg_TillLekplatser" FromRole="IndividuellaBetyg" ToRole="Lekplatser" />
+  </EntityType>
+  <EntityType Name="Lekplatser">
+    <Key>
+      <PropertyRef Name="LekplatsId" />
+    </Key>
+    <Property Name="LekplatsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Namn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Adress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Beskrivning" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="MinÅlderMålgrupp" Type="Byte" />
+    <Property Name="MaxÅlderMålgrupp" Type="Byte" />
+    <Property Name="FK_Områden_OmrådeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="IndividuellaBetyg" Relationship="Self.FK_IndividuellaBetyg_TillLekplatser" FromRole="Lekplatser" ToRole="IndividuellaBetyg" />
+    <NavigationProperty Name="Områden" Relationship="Self.FK_Lekplatser_TillOmråden" FromRole="Lekplatser" ToRole="Områden" />
+    <NavigationProperty Name="Lekutrustning" Relationship="Self.FK_Lekutrustning_Lekplatser" FromRole="Lekplatser" ToRole="Lekutrustning" />
+    <NavigationProperty Name="Tillgänglighet" Relationship="Self.FK_Tillgänglighet_TillLekplatser" FromRole="Lekplatser" ToRole="Tillgänglighet" />
+  </EntityType>
+  <EntityType Name="Lekutrustning">
+    <Key>
+      <PropertyRef Name="LekutrustningId" />
+    </Key>
+    <Property Name="LekutrustningId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ordning" Type="Int32" Nullable="false" />
+    <Property Name="Beskrivning" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FK_Lekplatser_LekplatsId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Lekplatser" Relationship="Self.FK_Lekutrustning_Lekplatser" FromRole="Lekutrustning" ToRole="Lekplatser" />
+  </EntityType>
+  <EntityType Name="Områden">
+    <Key>
+      <PropertyRef Name="OmrådeId" />
+    </Key>
+    <Property Name="OmrådeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Namn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Lekplatser" Relationship="Self.FK_Lekplatser_TillOmråden" FromRole="Områden" ToRole="Lekplatser" />
+  </EntityType>
+  <EntityType Name="Tillgänglighet">
+    <Key>
+      <PropertyRef Name="TillgänglighetId" />
+    </Key>
+    <Property Name="TillgänglighetId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ordning" Type="Int32" Nullable="false" />
+    <Property Name="Beskrivning" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FK_Lekplatser_LekplatsId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Lekplatser" Relationship="Self.FK_Tillgänglighet_TillLekplatser" FromRole="Tillgänglighet" ToRole="Lekplatser" />
+  </EntityType>
+  <Association Name="FK_IndividuellaBetyg_TillLekplatser">
+    <End Role="Lekplatser" Type="Self.Lekplatser" Multiplicity="1" />
+    <End Role="IndividuellaBetyg" Type="Self.IndividuellaBetyg" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lekplatser">
+        <PropertyRef Name="LekplatsId" />
+      </Principal>
+      <Dependent Role="IndividuellaBetyg">
+        <PropertyRef Name="FK_Lekplatser_LekplatsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lekplatser_TillOmråden">
+    <End Role="Områden" Type="Self.Områden" Multiplicity="1" />
+    <End Role="Lekplatser" Type="Self.Lekplatser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Områden">
+        <PropertyRef Name="OmrådeId" />
+      </Principal>
+      <Dependent Role="Lekplatser">
+        <PropertyRef Name="FK_Områden_OmrådeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lekutrustning_Lekplatser">
+    <End Role="Lekplatser" Type="Self.Lekplatser" Multiplicity="1" />
+    <End Role="Lekutrustning" Type="Self.Lekutrustning" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lekplatser">
+        <PropertyRef Name="LekplatsId" />
+      </Principal>
+      <Dependent Role="Lekutrustning">
+        <PropertyRef Name="FK_Lekplatser_LekplatsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tillgänglighet_TillLekplatser">
+    <End Role="Lekplatser" Type="Self.Lekplatser" Multiplicity="1" />
+    <End Role="Tillgänglighet" Type="Self.Tillgänglighet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lekplatser">
+        <PropertyRef Name="LekplatsId" />
+      </Principal>
+      <Dependent Role="Tillgänglighet">
+        <PropertyRef Name="FK_Lekplatser_LekplatsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DatabasLekplatserEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="IndividuellaBetyg" EntityType="Self.IndividuellaBetyg" />
+    <EntitySet Name="Lekplatser" EntityType="Self.Lekplatser" />
+    <EntitySet Name="Lekutrustning" EntityType="Self.Lekutrustning" />
+    <EntitySet Name="Områden" EntityType="Self.Områden" />
+    <EntitySet Name="Tillgänglighet" EntityType="Self.Tillgänglighet" />
+    <AssociationSet Name="FK_IndividuellaBetyg_TillLekplatser" Association="Self.FK_IndividuellaBetyg_TillLekplatser">
+      <End Role="Lekplatser" EntitySet="Lekplatser" />
+      <End Role="IndividuellaBetyg" EntitySet="IndividuellaBetyg" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lekplatser_TillOmråden" Association="Self.FK_Lekplatser_TillOmråden">
+      <End Role="Områden" EntitySet="Områden" />
+      <End Role="Lekplatser" EntitySet="Lekplatser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lekutrustning_Lekplatser" Association="Self.FK_Lekutrustning_Lekplatser">
+      <End Role="Lekplatser" EntitySet="Lekplatser" />
+      <End Role="Lekutrustning" EntitySet="Lekutrustning" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tillgänglighet_TillLekplatser" Association="Self.FK_Tillgänglighet_TillLekplatser">
+      <End Role="Lekplatser" EntitySet="Lekplatser" />
+      <End Role="Tillgänglighet" EntitySet="Tillgänglighet" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
